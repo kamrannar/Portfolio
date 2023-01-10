@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio</title>
+    
+    <link rel="stylesheet" href="{% static 'styles/alert.css' %} " />
     <link rel="stylesheet" href="{% static 'styles/styles.css' %} " />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -22,6 +24,7 @@
     />
   </head>
   <body class="main-content">
+    
     <header class="container header active" id="home">
       <div class="header-content">
         <div class="left-header">
@@ -30,8 +33,15 @@
             <img src="{%static 'img/20221123_160556.jpg'%}" alt="" />
           </div>
         </div>
+       
         <div class="right-header">
+          {% if messages %}
+    {% for message in messages %}
+    <div  {% if message.tags %} class="{{ message.tags }}" role='alert' {% endif %}>{{ message }}</div>
+    {% endfor %}
+{% endif %}
           <h1 class="name">
+            
             Hi, I'm <span>Kamran Narimanli.</span>
             A Python Web Developer.
           </h1>
@@ -50,6 +60,7 @@
     <main>
       <section class="container about" id="about">
         <div class="main-title">
+      
           <h2>About <span>me</span><span class="bg-text">my stats</span></h2>
         </div>
         <div class="about-container">
@@ -91,52 +102,11 @@
                 </p>
               </div>
             </div>
-            {% comment %}
-            <div class="about-item">
-              <div class="abt-text">
-                <p class="large-text">300+</p>
-                <p class="small-text">
-                  Happy <br />
-                  Clients
-                </p>
-              </div>
-            </div>
-            <div class="about-item">
-              <div class="abt-text">
-                <p class="large-text">400+</p>
-                <p class="small-text">
-                  Customer <br />
-                  reviews
-                </p>
-              </div>
-            </div>
-            {% endcomment %}
           </div>
         </div>
         <div class="about-stats">
           <h4 class="stat-title">My Skills</h4>
           <div class="progress-bars">
-            {% comment %}
-            <div class="progress-bar">
-              <p class="prog-title">html5</p>
-              <div class="progress-con">
-                <p class="prog-text">80%</p>
-                <div class="progress">
-                  <span class="html"></span>
-                </div>
-              </div>
-            </div>
-            <div class="progress-bar">
-              <p class="prog-title">css3</p>
-              <div class="progress-con">
-                <p class="prog-text">95%</p>
-                <div class="progress">
-                  <span class="css"></span>
-                </div>
-              </div>
-            </div>
-            {% endcomment %}
-
             <div class="progress-bar">
               <p class="prog-title">Python/Django</p>
               <div class="progress-con">
@@ -193,63 +163,6 @@
               level.
             </p>
           </div>
-          {% comment %}
-          <div class="timeline-item">
-            <div class="tl-icon">
-              <i class="fas fa-briefcase"></i>
-            </div>
-            <p class="tl-duration">2008 - 2011</p>
-            <h5>Software Engineer<span> - Boogle, Inc.</span></h5>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe
-              quasi vero fugit.
-            </p>
-          </div>
-          <div class="timeline-item">
-            <div class="tl-icon">
-              <i class="fas fa-briefcase"></i>
-            </div>
-            <p class="tl-duration">2016 - 2017</p>
-            <h5>C++ Programmer<span> - Slime Tech</span></h5>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe
-              quasi vero fugit.
-            </p>
-          </div>
-          <div class="timeline-item">
-            <div class="tl-icon">
-              <i class="fas fa-briefcase"></i>
-            </div>
-            <p class="tl-duration">2009 - 2013</p>
-            <h5>Business Degree<span> - Sussex University</span></h5>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe
-              quasi vero fugit.
-            </p>
-          </div>
-          <div class="timeline-item">
-            <div class="tl-icon">
-              <i class="fas fa-briefcase"></i>
-            </div>
-            <p class="tl-duration">2013 - 2016</p>
-            <h5>Computer Science Degree<span> - Brookes University</span></h5>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe
-              quasi vero fugit.
-            </p>
-          </div>
-          <div class="timeline-item">
-            <div class="tl-icon">
-              <i class="fas fa-briefcase"></i>
-            </div>
-            <p class="tl-duration">2017 - present</p>
-            <h5>3d Animation<span> - Brighton University</span></h5>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe
-              quasi vero fugit.
-            </p>
-          </div>
-          {% endcomment %}
         </div>
       </section>
       <section class="container" id="portfolio">
@@ -269,116 +182,10 @@
                 <a href="{{project.github}}" target="_blank" class="icon">
                   <i class="fab fa-github"></i>
                 </a>
-                <a href="#" class="icon">
-                  <i class="fab fa-behance"></i>
-                </a>
-                <a href="#" class="icon">
-                  <i class="fab fa-youtube"></i>
-                </a>
               </div>
             </div>
           </div>
           {% endfor %}
-{% comment %} 
-          <div class="portfolio-item">
-            <div class="image">
-              <img src="{{project.img.url}}" alt="" />
-            </div>
-            <div class="hover-items">
-              <h3>{{project.name}}</h3>
-              <div class="icons">
-                <a href="{{project.github}}" target="_blank" class="icon">
-                  <i class="fab fa-github"></i>
-                </a>
-              
-              </div>
-            </div>
-          </div> {% endcomment %}
-          {% comment %} <div class="portfolio-item">
-            <div class="image">
-              <img src="{%static 'img/Yelo-Bank-Logo.jpg'%}" alt="" />
-            </div>
-            <div class="hover-items">
-              <h3>Yelo Bank Demo Page Flask App</h3>
-              <div class="icons">
-                <a href="https://github.com/kamrannar/YeloBank-demo-page" target="_blank" class="icon">
-                  <i class="fab fa-github"></i>
-                </a>
-              
-              </div>
-            </div>
-          </div>
-          <div class="portfolio-item">
-            <div class="image">
-              <img src="{%static 'img/bookstore.jpg'%}" alt="" />
-            </div>
-            <div class="hover-items">
-              <h3>Bookstore Flask App</h3>
-              <div class="icons">
-                <a href="https://github.com/kamrannar/bookstore" target="_blank" class="icon">
-                  <i class="fab fa-github"></i>
-                </a>
-              
-              </div>
-            </div> {% endcomment %}
-          {% comment %} </div> {% endcomment %}
-          {% comment %} <div class="portfolio-item">
-            <div class="image">
-              <img src="img/port5.jpg" alt="" />
-            </div>
-            <div class="hover-items">
-              <h3>Project Source</h3>
-              <div class="icons">
-                <a href="#" class="icon">
-                  <i class="fab fa-github"></i>
-                </a>
-                <a href="#" class="icon">
-                  <i class="fab fa-behance"></i>
-                </a>
-                <a href="#" class="icon">
-                  <i class="fab fa-youtube"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="portfolio-item">
-            <div class="image">
-              <img src="img/port2.jpg" alt="" />
-            </div>
-            <div class="hover-items">
-              <h3>Project Source</h3>
-              <div class="icons">
-                <a href="#" class="icon">
-                  <i class="fab fa-github"></i>
-                </a>
-                <a href="#" class="icon">
-                  <i class="fab fa-behance"></i>
-                </a>
-                <a href="#" class="icon">
-                  <i class="fab fa-youtube"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="portfolio-item">
-            <div class="image">
-              <img src="img/port7.jpg" alt="" />
-            </div>
-            <div class="hover-items">
-              <h3>Project Source</h3>
-              <div class="icons">
-                <a href="#" class="icon">
-                  <i class="fab fa-github"></i>
-                </a>
-                <a href="#" class="icon">
-                  <i class="fab fa-behance"></i>
-                </a>
-                <a href="#" class="icon">
-                  <i class="fab fa-youtube"></i>
-                </a>
-              </div>
-            </div>
-          </div> {% endcomment %}
         </div>
       </section>
       <section class="container contact" id="contact">
@@ -450,17 +257,18 @@
               </div>
             </div>
             <div class="right-contact">
-              <form action="" class="contact-form">
+           
+              <form action="" method="POST">
+                {% csrf_token %}
                 <div class="input-control i-c-2">
-                  <input type="text" required placeholder="YOUR NAME" />
-                  <input type="email" required placeholder="YOUR EMAIL" />
+                  <input name="name" type="text" required placeholder="YOUR NAME" />
+                  <input name="email" type="email" required placeholder="YOUR EMAIL" />
                 </div>
                 <div class="input-control">
-                  <input type="text" required placeholder="ENTER SUBJECT" />
+                  <input type="text" name="subject" required placeholder="ENTER SUBJECT" />
                 </div>
                 <div class="input-control">
-                  <textarea
-                    name=""
+                  <textarea name="message"
                     id=""
                     cols="15"
                     rows="8"
@@ -468,21 +276,15 @@
                   ></textarea>
                 </div>
                 <div class="submit-btn">
-                  <a href="{%static 'Kamran Narimanli resume.pdf'%}" class="main-btn">
-                    <span class="btn-text">Download CV</span>
-                    <span class="btn-icon"
-                      ><i class="fas fa-download">
-                        </i
-                    ></span>
-                  </a>
+                  <button type="submit">Submit</button>
                 </div>
               </form>
             </div>
-          </div>
+      </div>
         </div>
       </section>
     </main>
-
+    
     <div class="controls">
       <div class="control active-btn" data-id="home">
         <i class="fas fa-home"></i>
