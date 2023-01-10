@@ -37,7 +37,7 @@
         <div class="right-header">
           {% if messages %}
     {% for message in messages %}
-    <div  {% if message.tags %} class="{{ message.tags }}" role='alert' {% endif %}>{{ message }}</div>
+    <div  {% if message.tags %} class="{{ message.tags }}" role='alert' {% endif %}><h1>{{ message }}</h1></div>
     {% endfor %}
 {% endif %}
           <h1 class="name">
@@ -276,12 +276,22 @@
                   ></textarea>
                 </div>
                 <div class="submit-btn">
-                  <button type="submit">Submit</button>
+                  <button type="submit" name="contact">Submit</button>
                 </div>
               </form>
             </div>
       </div>
         </div>
+      </section>
+      <section class="container link" id="link">
+        <div style="text-align:center"><h1>URL Shortener</h1>
+          <form action="" method="POST">
+            {% csrf_token %}
+            <input type="text" name="link">
+            <button type="submit">Submit</button>
+          </form>
+        </div>
+        
       </section>
     </main>
     
@@ -299,7 +309,12 @@
       <div class="control" data-id="contact">
         <i class="fas fa-envelope-open"></i>
       </div>
+      <div class="control" data-id="link">
+        <i class="fas fa-link"></i>
+      </div>
     </div>
+  
+  </div>
     <div class="theme-btn">
       <i class="fas fa-adjust"></i>
     </div>
